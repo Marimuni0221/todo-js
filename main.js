@@ -27,7 +27,9 @@ const onClickAd = () => {
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "削除";
     deleteButton.addEventListener("click", () => {
-        alert("削除");
+        //押された削除ボタンの親にあるliタグを未完了リストから削除
+        const deleteTarget = deleteButton.closest("li");
+        document.getElementById("incomplete-list").removeChild(deleteTarget);
     });
 
     //liタグの子要素に各要素を設定
@@ -38,5 +40,6 @@ const onClickAd = () => {
 
     //未完了リストに追加
     document.getElementById("incomplete-list").appendChild(li);
+    
 }
 document.getElementById("add-button").addEventListener("click", onClickAd);
